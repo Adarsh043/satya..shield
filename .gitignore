@@ -27,9 +27,7 @@ env/
 .env
 
 # Database
-*.sqlite3
-*.db
-satyashield.db
+# (Mock DB is synced to repo)
 
 # Node / Frontend
 node_modules/
@@ -47,7 +45,6 @@ pnpm-debug.log*
 Thumbs.db
 
 # Uploads / Data
-secure_uploads/
 *.log
 
 # IDE
