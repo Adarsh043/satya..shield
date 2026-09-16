@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import './utilities.css';
+@import "tailwindcss";
+
+:root {
+  --color-white: #FFFFFF;
+  --color-bg-soft: #FDFBF7; /* Warm Ivory */
+  --color-text-navy: #2D3748; /* Deep Charcoal */
+  --color-text-light: #718096; /* Slate Gray */
+  --color-primary-teal: #E8751A; /* Warm Saffron / Orange */
+  --color-light-teal: #FFF5F0; /* Soft Orange background */
+  --color-accent-saffron: #C05621; /* Deep Terracotta */
+  --color-border: #E2E8F0;
+  --color-error: #E53E3E; /* Deep Red */
+  --color-error-bg: #FFF5F5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg-soft);
+  background-image: 
+    radial-gradient(circle at top left, rgba(232, 117, 26, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at bottom right, rgba(192, 86, 33, 0.04) 0%, transparent 40%);
+  color: var(--color-text-navy);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #E8751A 0%, #E8751A 33%, #FDFBF7 33%, #FDFBF7 66%, #38A169 66%, #38A169 100%);
+  z-index: 1000;
+}
+
+h1, h2, h3, h4, h5, h6, .tagline {
+  font-family: 'Outfit', sans-serif;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Common UI Components */
+.primary-btn {
+  background-color: var(--color-primary-teal);
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.primary-btn:hover:not(:disabled) {
+  background-color: #125A54;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(23, 111, 104, 0.2);
+}
+
+.primary-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.primary-btn:disabled {
+  background-color: #A0C4C1;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.secondary-btn {
+  background-color: transparent;
+  color: var(--color-primary-teal);
+  border: 1px solid var(--color-primary-teal);
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.secondary-btn:hover {
+  background-color: var(--color-light-teal);
+}
+
+.text-btn {
+  background: none;
+  border: none;
+  color: var(--color-primary-teal);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.text-btn:hover {
+  text-decoration: underline;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.input-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-navy);
+}
+
+.text-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: var(--color-white);
+  color: var(--color-text-navy);
+}
+
+.text-input:focus {
+  border-color: var(--color-primary-teal);
+  box-shadow: 0 0 0 3px var(--color-light-teal);
+}
+
+.text-input::placeholder {
+  color: #9AA6AC;
+}
+
+.error-text {
+  color: var(--color-error);
+  font-size: 13px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tricolor-bar {
+  height: 4px;
+  width: 60px;
+  border-radius: 2px;
+  background: linear-gradient(to right, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Utilities */
+.fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-wave {
+  animation: wave 3s ease-in-out infinite alternate;
+}
+
+@keyframes wave {
+  0% { transform: perspective(100px) rotateY(0deg) skewY(0deg); }
+  50% { transform: perspective(100px) rotateY(10deg) skewY(2deg); }
+  100% { transform: perspective(100px) rotateY(-5deg) skewY(-1deg); }
+}
